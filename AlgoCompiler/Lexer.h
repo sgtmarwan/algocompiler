@@ -15,7 +15,7 @@ struct Token
 	std::variant<std::wstring, wchar_t, int64_t, double, bool> value;
 	
 	template <typename T>
-	Token(Type t, T v):
+	Token(T v, Type t):
 		type(t), value(v)
 	{
 

@@ -147,11 +147,11 @@ std::vector<Token> Lex(const std::wstring_view src)
 					Token::Type t = isKeyword(currentTok);
 					if (t < Token::Type::kwEnd && t > Token::Type::kwStart)
 					{
-						tokens.emplace_back(t);
+						tokens.emplace_back(currentTok, t);
 					}
 					else if(t < Token::Type::opEnd && t > Token::Type::opStart)
 					{
-						tokens.emplace_back(t);
+						tokens.emplace_back(currentTok, t);
 					}
 					else
 					{
