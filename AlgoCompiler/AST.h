@@ -1,14 +1,31 @@
 #pragma once
 #include "Lexer.h"
 
-class INode
+enum class ASTNodeType
 {
-
+	root,
 };
 
-class RootNode : public INode
+class ASTNode
 {
+public:
+	const ASTNodeType type;
+public:
+	ASTNode(ASTNodeType type):
+		type(type)
+	{
 
+	}
+};
+
+class RootNode : public ASTNode
+{
+public:
+	RootNode():
+		ASTNode(ASTNodeType::root)
+	{
+
+	}
 };
 
 

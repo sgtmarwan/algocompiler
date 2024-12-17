@@ -149,13 +149,17 @@ std::vector<Token> Lex(const std::wstring_view src)
 					{
 						tokens.emplace_back(currentTok, t);
 					}
-					else if(t < Token::Type::opEnd && t > Token::Type::opStart)
-					{
-						tokens.emplace_back(currentTok, t);
-					}
 					else
 					{
-						tokens.emplace_back(currentTok, Token::Type::idnt);
+						t = isOp(currentTok);
+						if (t < Token::Type::opEnd && t > Token::Type::opStart)
+						{
+							tokens.emplace_back(currentTok, t);
+						}
+						else
+						{
+							tokens.emplace_back(currentTok, Token::Type::idnt);
+						}
 					}
 					break;
 				case TokenType::alphnumidx:
